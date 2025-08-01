@@ -7,3 +7,5 @@ const studentRouter = express.Router();
 studentRouter.post("/register", validateStudent, registerStudent);
 studentRouter.post("/signin", authenticate, studentSignin);
 studentRouter.get("/filter-student", filterStudent);
+
+export default studentRouter;

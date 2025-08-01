@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import { connectDb } from "./db.config";
 import cors from 'cors'
 import dotenv from "dotenv";
+import studentRouter from "./routes/studentRoutes";
 
 dotenv.config();
 
@@ -18,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routing will come here.
 
-// app.use('/api/v1', )
+app.use('/api/v1', studentRouter)
 
 // Mongodb connection establishment
 
