@@ -43,13 +43,14 @@ export const registerStudent = async (req: Request, res: Response) => {
       createdAt: new Date().toLocaleDateString(),
     });
 
-    export const users = faker.helpers.multiple(createRandomUser, {
-  count: 5,
+    export const fakeUsers = faker.helpers.multiple(createRandomUser, {
+  count: 50,
 });
     return res.status(201).json({
       status: true,
       message: "student Created successfully",
       data: studentData,
+      fakeUserData: fakeUsers
     });
   } catch (error) {
     return res.status(500).json({
