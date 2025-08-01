@@ -12,7 +12,6 @@ export const checkStudent = (
   next: NextFunction
 ) => {
   try {
-    const { studentAge, studentEmail, studentGrade, studentName } = req.body;
     const validateResult = validateStudent(req.body);
     const authHeader = req.headers.authorization;
     if (!authHeader || !authHeader.startsWith("Bearer ")) {

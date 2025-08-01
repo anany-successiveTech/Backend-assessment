@@ -4,6 +4,7 @@ import Student from "../models/student";
 import dotenv from "dotenv";
 import { IStudent } from "../interfaces/student";
 import { faker } from '@faker-js/faker';
+import { STATES } from "mongoose";
 dotenv.config();
 
 const createRandomUser() {
@@ -118,6 +119,21 @@ export const deleteStudent = async (req: Request, res: Response) => {
 export const UpdateStudent = async (req: Request, res: Response) => {
   try {
     const studentId = req.params;
+    const { studentName, studentAge, studentGrade, studentEmail } = req.body
     const foundStudent = await Student.findById({ _id: studentId });
-  } catch (error) {}
+    const updatedData = Student.updateOne({
+      name: studentName,
+      age: studentAge,
+      grade: studentGrade,
+      email: studentEmail,
+    })
+    return res.status(200).json({
+        status:true,
+        message:"Student data updated successfully"
+    })
+  } catch (error) {
+    return res.status(505).json({
+        message:"Internal server error!"
+    })
+  }
 };
