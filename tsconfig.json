@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",                        // Compile to modern JS
+    "module": "commonjs",                   // Still fine for Node.js (supports `require`, but works with `import` if esModuleInterop is true)
+    "moduleResolution": "node",             // Node-style resolution for imports
+    "rootDir": "./src",                     // Source files go in /src
+    "outDir": "./dist",                     // Compiled files go in /dist
+    "strict": true,                         // Enables all strict type-checking options
+    "esModuleInterop": true,                // Allows default imports from CommonJS modules
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,                   // Skip type checking of declaration files for speed
+    "sourceMap": true,                      // Generates .map files for debugging
+    "resolveJsonModule": true               // Allows importing .json files
+  },
+  "include": ["src/**/*"],                  // Include all .ts files inside /src
+  "exclude": ["node_modules", "dist"]       // Exclude node_modules and compiled output
+}
